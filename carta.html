@@ -3,95 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Para Ti 💖</title>
+    <title>San Valentín</title>
+    <link rel="stylesheet" href="styles.css">
     <style>
         body {
-            background-color: pink;
+            background-color: black;
+            color: #b300ff;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            margin: 0;
-            font-family: Arial, sans-serif;
-            overflow: hidden;
             flex-direction: column;
+            text-align: center;
         }
         .card {
-            background-color: white;
+            background-color: black;
             padding: 30px;
             border-radius: 15px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 0 20px rgba(255, 0, 255, 0.5);
             text-align: center;
             max-width: 400px;
             position: relative;
         }
         h1 {
-            color: #ff4d79;
+            color: #b300ff;
+            text-shadow: 0 0 10px #b300ff, 0 0 20px #b300ff, 0 0 30px #ff00ff;
+            animation: glow 2s infinite alternate;
         }
-        p {
-            color: #333;
-            font-size: 18px;
-        }
-        .heart {
-            position: absolute;
-            color: red;
-            font-size: 24px;
-            animation: floatUp 5s infinite ease-in-out;
-        }
-        @keyframes floatUp {
+        @keyframes glow {
             0% {
-                transform: translateY(0) scale(1);
-                opacity: 1;
+                opacity: 0.3;
+                text-shadow: 0 0 5px #b300ff, 0 0 10px #b300ff, 0 0 15px #ff00ff;
             }
             100% {
-                transform: translateY(-300px) scale(1.5);
-                opacity: 0;
+                opacity: 1;
+                text-shadow: 0 0 10px #b300ff, 0 0 20px #b300ff, 0 0 30px #ff00ff;
             }
         }
-        .download-btn {
-            margin-top: 20px;
+        button {
+            margin: 10px;
             padding: 10px 20px;
             font-size: 18px;
-            color: white;
-            background-color: #ff4d79;
-            border: none;
-            border-radius: 10px;
             cursor: pointer;
-            box-shadow: 0 0 10px rgba(255, 77, 121, 0.7);
+            border: none;
+            border-radius: 20px;
+            color: white;
+            width: 100px;
+            height: 50px;
+        }
+        #btnYes {
+            background-color: pink;
+            box-shadow: 0 0 10px pink;
+        }
+        #btnNo {
+            background-color: red;
+            box-shadow: 0 0 10px red;
         }
     </style>
 </head>
 <body>
     <div class="card">
-        <h1>¡Feliz San Valentín! 💘</h1>
-        <p>Mi amor, eres lo mejor que me ha pasado. Gracias por estar a mi lado. 💖</p>
-        <button class="download-btn" onclick="downloadPDF()">Descarga una cartita para ti📜</button>
+        <h1>mi amor, tu novio el de los compuatadores pregunta ¿Quieres ser mi san Valentin? 💖</h1>
+        <button id="btnYes" onclick="window.location.href='carta.html'">Sí :))</button>
+        <button id="btnNo" onclick="alert('SE QUE NO ESCOJISTE LA QUE ERA AMOOOORRR!!!')">No :((</button>
     </div>
-    <script>
-        function createHeart() {
-            const heart = document.createElement("div");
-            heart.innerHTML = "❤️";
-            heart.classList.add("heart");
-            document.body.appendChild(heart);
-            
-            const x = Math.random() * window.innerWidth;
-            heart.style.left = `${x}px`;
-            heart.style.top = `${window.innerHeight}px`;
-            
-            setTimeout(() => {
-                heart.remove();
-            }, 5000);
-        }
-        setInterval(createHeart, 200);
-        
-        function downloadPDF() {
-            const link = document.createElement("a");
-            link.href = "tas y estaras por siempre.pdf";
-            link.download = "tas y estaras por siempre.pdf";
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-        }
-    </script>
 </body>
 </html>
